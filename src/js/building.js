@@ -9,9 +9,14 @@ export default class Building {
         this.elevator; 
         this.heightElevator;
 
-        this.buttons = [];
+        this.currentHeightElevator = 0,
+        this.needHeight = 0;
 
-        this.timer;
+        this.buttons = [];
+        this.saveButtons = [1];
+
+        this.animation; 
+        this.timer; //(для очистки таймера)
         this.move = false; //отслеживаем, находится ли в движении лифт
     }
 
@@ -58,10 +63,10 @@ export default class Building {
 
         this.needHeight = (this.heightElevator * this.saveButtons[1] - this.heightElevator);
         if (this.saveButtons[0] < this.saveButtons[1]) {
-            //elevatorMove("Up");
+            this.elevatorMove("Up");
             document.querySelectorAll(".storey__arrow")[0].style.transform = "rotate(270deg)";
         } else {
-            //elevatorMove("Bottom");
+            this.elevatorMove("Bottom");
             document.querySelectorAll(".storey__arrow")[0].style.transform = "rotate(90deg)";
         }
 
@@ -75,6 +80,41 @@ export default class Building {
         console.log("Осталось посетить: " + this.saveButtons);
         console.log("----------------");
     }
+
+    elevatorMove(direction) {
+        switch (direction) {
+            case "Up":
+
+                this.animation = setInterval(()=> {
+                    if (this.currentHeightElevator === this.needHeight) {
+                        //elevatorStop();
+                    } else {
+                        this.currentHeightElevator++;
+                        this.elevator.style.top = "-" + this.currentHeightElevator + "px";
+                    }
+                }, 1);
+
+            break;
+
+            case "Bottom":
+                this.animation = setInterval(()=> {
+
+                    if (this.currentHeightElevator === this.needHeight) {
+                        //elevatorStop();
+                    } else {
+                        this.currentHeightElevator--;
+                        this.elevator.style.top = "-" + this.currentHeightElevator + "px";
+                    }
+                }, 1);
+
+            break;
+
+            default:
+                break;
+        }
+    }
+
+
 
 
 }
