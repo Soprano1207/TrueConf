@@ -1,3 +1,24 @@
+/**
+ * this.elevator 
+ * this.heightElevator; -- габариты лифта
+ * this.currentHeightElevator = 0, -- текущая высота лифта относительно 1ого этажа
+ * this.needHeight = 0; -- необходимая высота
+ * 
+ * this.buttons = []; //кнопки, как массив объектов для обращения к ним 
+ * this.saveButtons = [1]; -- массив id кнопок, которые необходимо посетить. 0-ой элемент -- текущая позиция лифта
+ * 
+ * this.animation; -- (для очистки интервала)
+ * this.timer; -- (для очистки таймера)
+   this.move = false; -- отслеживаем, находится ли в движении лифт
+
+   generateHtml() -- генерация DOM елементов
+   clickButton() -- добавление id кнопок в массив this.saveButtons
+   defineHeight() -- Определение высоты для поднятия/опускания лифта
+   elevatorMove(direction) -- анимация движения лифта
+   elevatorStop() -- останавливаем лифт и определяем есть ли в очереди вызовы
+   localData() -- собираем данные из локального хранилища (определяем текущую высоту лифта и добавляем в массив this.saveButtons кнопки последующих вызовов)
+ */
+
 export default class Building {
     constructor(element, options = {}) {
         this.element = element 
