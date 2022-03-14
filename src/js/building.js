@@ -45,11 +45,35 @@ export default class Building {
                     this.saveButtons.push(idBtn);
 
                     if (!this.move) {
-                        // defineHeight();
+                        this.defineHeight();
                     }
                 }
             }
         });
+    }
+
+    defineHeight() {
+        this.timer = undefined;
+        this.move = true;
+
+        this.needHeight = (this.heightElevator * this.saveButtons[1] - this.heightElevator);
+        if (this.saveButtons[0] < this.saveButtons[1]) {
+            //elevatorMove("Up");
+            document.querySelectorAll(".storey__arrow")[0].style.transform = "rotate(270deg)";
+        } else {
+            //elevatorMove("Bottom");
+            document.querySelectorAll(".storey__arrow")[0].style.transform = "rotate(90deg)";
+        }
+
+        document.querySelectorAll(".storey__num")[0].innerText = this.saveButtons[1];
+        
+        const index = this.saveButtons.indexOf(this.saveButtons[0]);
+        if (index !== -1) {
+            this.saveButtons.splice(index, 1);
+        }
+        console.log("необходимая высота  -", this.needHeight, "px");
+        console.log("Осталось посетить: " + this.saveButtons);
+        console.log("----------------");
     }
 
 
