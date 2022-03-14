@@ -10,6 +10,9 @@ export default class Building {
         this.heightElevator;
 
         this.buttons = [];
+
+        this.timer;
+        this.move = false; //отслеживаем, находится ли в движении лифт
     }
 
     generateHtml() {
@@ -30,5 +33,25 @@ export default class Building {
        this.buttons = document.querySelectorAll(".storey__button");
        this.heightElevator = this.elevator.clientHeight;
     }
+
+    clickButton() {
+        [].forEach.call(this.buttons, (elements) => {
+            elements.onclick = (element) => {
+                const idBtn = Number(element.target.id);
+                if (this.saveButtons.includes()) {
+                    return false;
+                } else {
+                    element.target.style.backgroundColor = "#4cd964";
+                    this.saveButtons.push(idBtn);
+
+                    if (!this.move) {
+                        // defineHeight();
+                    }
+                }
+            }
+        });
+    }
+
+
 }
 
