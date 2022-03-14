@@ -114,6 +114,23 @@ export default class Building {
         }
     }
 
+    elevatorStop() {
+        document.getElementById(String(this.saveButtons[0])).style.backgroundColor = "orange";
+        clearInterval(this.animation);
+
+        this.elevator.classList.add("storey__elevator_active");
+        
+        this.timer = setTimeout(() => {
+            this.move = false;
+            this.timer = undefined;
+            this.elevator.classList.remove("storey__elevator_active");
+
+            if (this.saveButtons.length > 1) {
+                this.defineHeight();
+            }
+        }, 3000);
+    }
+
 
 
 
