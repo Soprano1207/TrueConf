@@ -53,7 +53,7 @@ body {
 }
 
 .storey__elevator_active {
-
+    animation: pulsate 1s linear infinite;
 } 
 
 .storey__arrow-block {
@@ -78,3 +78,8 @@ body {
     font-weight: bold;
 }
 
+@keyframes pulsate {
+    100% {
+        background-color: rgba(255, 165, 0, 0.7);
+    }
+}
