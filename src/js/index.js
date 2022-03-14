@@ -4,3 +4,4 @@ let building = new Building(document.getElementById("body"), {
     countStorey: 5,
 }); 
 building.generateHtml();
+building.clickButton();
