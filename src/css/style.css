@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #000000;
+}
+.storey {
+    height: 200px;
+}
+
+.container {
+    width: 1000px;
+    height: 100%;
+    background-color: rgb(30, 30, 30);
+    margin: 0 auto;
+    border-bottom: solid 1px rgb(68, 68, 68);
+    border-top: solid 1px rgb(68, 68, 68);
+    display: flex;
+}
+
+.storey__button {
+    display: block;
+    width: 25px;
+    height: 25px;
+    padding: 2px 0 2px 0;
+    border-radius: 50%;
+    background-color: orange;
+    margin: 26px 0 0 25px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.storey__first {
+    position: relative;
+}
+
+.storey__shaft {
+    height: 100%;
+    width: 150px;
+    background-color: rgb(23, 23, 23);
+}
+
+.storey__elevator {
+    position: absolute;
+    height: 200px;
+    width: 150px;
+    background-color: rgb(90, 90, 90);
+    /* top: 0px; */
+}
+
+.storey__elevator_active {
+
+} 
+
+.storey__arrow-block {
+    background-color:rgb(156, 229, 252);
+    width: 80px;
+    height: 30px;
+    margin: 25px auto;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.storey__arrow {
+    display: block;
+    width: 30px;
+    height: 30px;
+    transform: rotate(270deg);
+}
+
+.storey__num {
+    font-size: 30px;
+    font-weight: bold;
+}
+
